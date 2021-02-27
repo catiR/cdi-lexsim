@@ -22,6 +22,13 @@ njc = JaccardData('path/to/data', 'nouns')
 njc.runVocab()
 ```
 
+To view acquisition of morphological elements as a function of vocabulary size:
+
+```python
+jc = JaccardData('path/to/data', 'all')
+jc.runMorph()
+```
+
 
 To view detailed comparison of children's earliest words:
 
