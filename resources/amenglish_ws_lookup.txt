@@ -1,0 +1,682 @@
+### based on CMU Pronouncing Dictionary-0.7b http://www.speech.cs.cmu.edu/cgi-bin/cmudict
+### incomplete entries added by hand 28.02.2021
+I	AY
+TV	T
+a	AH
+a lot	AH
+about	AH
+above	AH
+after	AE
+airplane	EH
+all	AO
+all gone	AO
+alligator	AE
+am	AE
+an	AE
+and	AH
+animal	AE
+ankle	AE
+another	AH
+ant	AE
+any	EH
+apple	AE
+applesauce	AE
+are	AA
+arm	AA
+around	ER
+asleep	AH
+at	AE
+aunt	AE
+awake	AH
+away	AH
+baa baa	B
+baby	B
+babysitter	B
+babysitters name	B
+back	B
+backyard	B
+bad	B
+ball	B
+balloon	B
+banana	B
+basement	B
+basket	B
+bat	B
+bath	B
+bathroom	B
+bathtub	B
+be	B
+beach	B
+beads	B
+beans	B
+bear	B
+because	B
+bed	B
+bedroom	B
+bee	B
+before	B
+behind	B
+belly button	B
+belt	B
+bench	B
+beside	B
+better	B
+bib	B
+bicycle	B
+big	B
+bird	B
+bite	B
+black	B
+blanket	B
+block	B
+blow	B
+blue	B
+boat	B
+book	B
+boots	B
+bottle	B
+bowl	B
+box	B
+boy	B
+bread	B
+break	B
+breakfast	B
+bring	B
+broken	B
+broom	B
+brother	B
+brown	B
+brush	B
+bubbles	B
+bucket	B
+bug	B
+build	B
+bump	B
+bunny	B
+bus	B
+but	B
+butter	B
+butterfly	B
+buttocks/bottom*	B
+button	B
+buy	B
+by	B
+bye	B
+cake	K
+call (on phone)	K
+camera	K
+camping	K
+can (auxiliary)	K
+can (object)	K
+candy	K
+car	K
+careful	K
+carrots	K
+carry	K
+cat	K
+catch	K
+cereal	S
+chair	CH
+chalk	CH
+chase	CH
+cheek	CH
+cheerios	CH
+cheese	CH
+chicken (animal)	CH
+chicken (food)	CH
+child	CH
+childs own name	CH
+chin	CH
+chocolate	CH
+choo choo	CH
+church*	CH
+circus	S
+clap	K
+clean (action)	K
+clean (description)	K
+climb	K
+clock	K
+close	K
+closet	K
+cloud	K
+clown	K
+coat	K
+cockadoodledoo	K
+coffee	K
+coke	K
+cold	K
+comb	K
+cook	K
+cookie	K
+corn	K
+couch	K
+could	K
+country	K
+cover	K
+cow	K
+cowboy	K
+cracker	K
+crayon	K
+crib	K
+cry	K
+cup	K
+cut	K
+cute	K
+daddy*	D
+dance	D
+dark	D
+day	D
+deer	D
+diaper	D
+did/did ya	D
+dinner	D
+dirty	D
+dish	D
+do	D
+doctor	D
+does	D
+dog	D
+doll	D
+donkey	D
+dont	D
+donut	D
+door	D
+down	D
+downtown	D
+draw	D
+drawer	D
+dress (object)	D
+drink (action)	D
+drink (beverage)	D
+drive	D
+drop	D
+dry (action)	D
+dry (description)	D
+dryer	D
+duck	D
+dump	D
+each	IY
+ear	IY
+eat	IY
+egg	EH
+elephant	EH
+empty	EH
+every	EH
+eye	AY
+face	F
+fall	F
+farm	F
+fast	F
+feed	F
+find	F
+fine	F
+finger	F
+finish	F
+fireman	F
+firetruck	F
+first	F
+fish (animal)	F
+fish (food)	F
+fit	F
+fix	F
+flag	F
+flower	F
+food	F
+foot	F
+for	F
+fork	F
+french fries	F
+friend	F
+frog	F
+full	F
+game	G
+garage	G
+garbage	G
+garden	G
+gas station	G
+gentle	JH
+get	G
+giraffe	JH
+girl	G
+give	G
+give me five!	G
+glass	G
+glasses	G
+gloves	G
+glue	G
+go	G
+go potty	G
+gonna get you!	G
+gonna/going to	G
+good	G
+goose	G
+gotta/got to	G
+grandma*	G
+grandpa*	G
+grapes	G
+grass	G
+green	G
+green beans	G
+grrr	G
+gum	G
+hafta/have to	HH
+hair	HH
+hamburger	HH
+hammer	HH
+hand	HH
+happy	HH
+hard	HH
+hat	HH
+hate	HH
+have	HH
+he	HH
+head	HH
+hear	HH
+heavy	HH
+helicopter	HH
+hello	HH
+help	HH
+hen	HH
+her	HH
+here	HH
+hers	HH
+hi	HH
+hide	HH
+high	HH
+high chair	HH
+him	HH
+his	HH
+hit	HH
+hold	HH
+home	HH
+horse	HH
+hose	HH
+hot	HH
+house	HH
+how	HH
+hug	HH
+hungry	HH
+hurry	HH
+hurt	HH
+ice	AY
+ice cream	AY
+if	IH
+inside/in	IH
+into	IH
+is	IH
+it	IH
+jacket	JH
+jar	JH
+jeans	JH
+jello	JH
+jelly	JH
+juice	JH
+jump	JH
+keys	K
+kick	K
+kiss	K
+kitchen	K
+kitty	K
+knee	N
+knife	N
+knock	N
+ladder	L
+lady	L
+lamb	L
+lamp	L
+last	L
+later	L
+lawn mower	L
+leg	L
+lemme/let me	L
+lick	L
+light	L
+like	L
+lion	L
+lips	L
+listen	L
+little (description)	L
+living room	L
+lollipop	L
+long	L
+look	L
+loud	L
+love	L
+lunch	L
+mad	M
+mailman	M
+make	M
+man	M
+me	M
+meat	M
+medicine	M
+melon	M
+meow	M
+milk	M
+mine	M
+mittens	M
+mommy*	M
+money	M
+monkey	M
+moo	M
+moon	M
+moose	M
+mop	M
+more	M
+morning	M
+motorcycle	M
+mouse	M
+mouth	M
+movie	M
+much	M
+muffin	M
+my	M
+myself	M
+nail	N
+nap	N
+napkin	N
+naughty	N
+necklace	N
+need/need to	N
+new	N
+next to	N
+nice	N
+night	N
+night night	N
+no	N
+noisy	N
+none	N
+noodles	N
+nose	N
+not	N
+now	N
+nurse	N
+nuts	N
+of	AH
+off	AO
+old	OW
+on	AA
+on top of	AA
+open	OW
+orange (description)	AO
+orange (food)	AO
+other	AH
+ouch	AW
+our	AW
+out	AW
+outside	AW
+oven	AH
+over	OW
+owie/boo boo	AW
+owl	AW
+paint	P
+pajamas	P
+pancake	P
+pants	P
+paper	P
+park	P
+party	P
+pattycake	P
+peanut butter	P
+peas	P
+peekaboo	P
+pen	P
+pencil	P
+penguin	P
+penis*	P
+penny	P
+people	P
+person	P
+pets name	P
+pick	P
+pickle	P
+picnic	P
+picture	P
+pig	P
+pillow	P
+pizza	P
+plant	P
+plate	P
+play	P
+play dough	P
+play pen	P
+playground	P
+please	P
+police	P
+pony	P
+pool	P
+poor	P
+popcorn	P
+popsicle	P
+porch	P
+potato	P
+potato chip	P
+potty	P
+pour	P
+present	P
+pretend	P
+pretty	P
+pretzel	P
+pudding	P
+pull	P
+pumpkin	P
+puppy	P
+purse	P
+push	P
+put	P
+puzzle	P
+quack quack	K
+quiet	K
+radio	R
+rain	R
+raisin	R
+read	R
+red	R
+refrigerator	R
+ride	R
+rip	R
+rock	R
+rocking chair	R
+roof	R
+room	R
+rooster	R
+run	R
+sad	S
+salt	S
+same	S
+sandbox	S
+sandwich	S
+sauce	S
+say	S
+scared	S
+scarf	S
+school	S
+scissors	S
+see	S
+shake	SH
+share	SH
+she	SH
+sheep	SH
+shh/shush/hush	SH
+shirt	SH
+shoe	SH
+shopping	SH
+shorts	SH
+shoulder	SH
+shovel	SH
+show	SH
+shower	SH
+sick	S
+sidewalk	S
+sing	S
+sink	S
+sister	S
+sit	S
+skate	S
+sky	S
+sled	S
+sleep	S
+sleepy	S
+slide (action)	S
+slide (object)	S
+slipper	S
+slow	S
+smile	S
+snack	S
+sneaker	S
+snow	S
+snowman	S
+snowsuit	S
+so	S
+so big!	S
+soap	S
+sock	S
+soda/pop	S
+sofa	S
+soft	S
+some	S
+soup	S
+spaghetti	S
+spill	S
+splash	S
+spoon	S
+sprinkler	S
+squirrel	S
+stairs	S
+stand	S
+star	S
+stay	S
+stick	S
+sticky	S
+stone	S
+stop	S
+store	S
+story	S
+stove	S
+strawberry	S
+street	S
+stroller	S
+stuck	S
+sun	S
+sweater	S
+sweep	S
+swim	S
+swing (action)	S
+swing (object)	S
+table	T
+take	T
+talk	T
+tape	T
+taste	T
+teacher	T
+tear	T
+teddybear	T
+telephone	T
+thank you	TH
+that	DH
+the	DH
+their	DH
+them	DH
+then	DH
+there	DH
+these	DH
+they	DH
+think	TH
+thirsty	TH
+this	DH
+this little piggy	DH
+those	DH
+throw	TH
+tickle	T
+tiger	T
+tights	T
+time	T
+tiny	T
+tired	T
+tissue/kleenex	T
+to	T
+toast	T
+today	T
+toe	T
+tomorrow	T
+tongue	T
+tonight	T
+too	T
+tooth	T
+toothbrush	T
+touch	T
+towel	T
+toy (object)	T
+tractor	T
+train	T
+trash	T
+tray	T
+tree	T
+tricycle	T
+truck	T
+try/try to	T
+tummy	T
+tuna	T
+turkey	T
+turn around	T
+turtle	T
+uh oh	AH
+uncle	AH
+under	AH
+underpants	AH
+up	AH
+us	AH
+vacuum	V
+vagina*	V
+vanilla	V
+vitamins	V
+vroom	V
+wait	W
+wake	W
+walk	W
+walker	W
+wanna/want to	W
+was	W
+wash	W
+washing machine	W
+watch (action)	W
+watch (object)	W
+water (beverage)	W
+water (not beverage)	W
+we	W
+were	W
+wet	W
+what	W
+when	W
+where	W
+which	W
+white	W
+who	HH
+why	W
+will	W
+wind	W
+window	W
+windy	W
+wipe	W
+wish	W
+with	W
+wolf	W
+woods	W
+woof woof	W
+work (action)	W
+work (place)	W
+would	W
+write	R
+yard	Y
+yellow	Y
+yes	Y
+yesterday	Y
+yogurt	Y
+you	Y
+your	Y
+yourself	Y
+yucky	Y
+yum yum	Y
+zebra	Z
+zipper	Z
+zoo	Z

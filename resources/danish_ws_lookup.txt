@@ -1,0 +1,719 @@
+### based on eSpeak Danish pronunciation dictionary accessed from https://openslr.org/8/
+### incomplete entries added by hand 28.02.2021
+(at) kunne	&
+(at) måtte	&
+(at) skulle	&
+(at) ville	&
+(benzin)tanken	b
+(en) anden	e
+(et) andet	e
+(gør) ondt	g
+I	i
+abe	&
+af	&
+affald	A
+aften	A
+aftensmad	A
+agurk	&
+alle	?&
+altan	?&
+and	?&
+andre	?A
+ankel	?A
+ansigt	&
+appelsin	A
+arbejde	A
+arm	A
+av	?A
+baby	b
+babysitters navn	b
+bade	b
+badebassin	b
+badekar	b
+badeværelse	b
+baggård	b
+bagved	b
+bakke	b
+ballon	b
+bamse	b
+banan	b
+bange	b
+barn	b
+barnets eget navn	b
+barnevogn	b
+be om	b
+bedre	b
+bedste(mor)	b
+bedstefar	b
+ben	b
+beskidt	b
+bi	b
+bide	b
+bil	b
+billede	b
+biografen	b
+bjørn	b
+ble	b
+blive	b
+blomst	b
+bluse	b
+blyant	b
+blå	b
+blæser	b
+blød	b
+bog	b
+bold	b
+boller	b
+bondegård	b
+bord	b
+bort	b
+borte	b
+borte tit/titte bøh	b
+brandbil	b
+brandmand	b
+briller	b
+bror	b
+brun	b
+bruser	b
+bryster	b
+brød	b
+bukser	b
+burger	b
+bus	b
+butik	b
+byen	b
+bygge	b
+bånd	b
+bælte	b
+bære	b
+bønner	b
+børste	b
+camping	k
+chips	t
+chokolade	S
+cirkus	s
+cola	k
+cornflakes	k
+cowboy	k
+cykel	s
+da	d
+dag	d
+dagplejemors navn	d
+dame	d
+danse	d
+dav	d
+de	d
+dele	d
+dem	d
+den	d
+denne/den her	d
+dens/dets	d
+der	d
+deres	d
+dessert	d
+det	d
+dette/det her	d
+dig	d
+dig selv	d
+din/dit/dine	d
+dreng	d
+drikke	d
+du	d
+dukke	d
+duplo	d
+dyne	d
+dyr	d
+dåse	d
+dør	d
+efter	?E
+eftermiddag	?E
+egern	e
+elefant	e
+elske	?E
+en (ikke tallet 1)	e
+er	E
+et (ikke tallet 1)	e
+falde	f
+fange	f
+far	f
+farbror	f
+farfar	f
+farmor	f
+farveblyant	f
+farvel	f
+faster	f
+feje	f
+fest	f
+fin	f
+finde	f
+finger	f
+fisk (animal)	f
+fisk (food)	f
+flag	f
+flaske	f
+flue	f
+flyvemaskine	f
+flyverdragt	f
+folk	f
+for	f
+fordi	f
+formiddag	f
+forretning	f
+forsigtig	f
+forskrækket	f
+fortov	f
+fra	f
+frakke	f
+frem	f
+fremme	f
+frikadeller	f
+frokost	f
+fræk	f
+frø	f
+fugl	f
+fuld	f
+fut	f
+få	f
+får	f
+fødder	f
+før	f
+først	f
+gade	g
+gaffel	g
+gammel	g
+garage	g
+gave	g
+gemme	g
+gennem	g
+gider ikke	g
+giraf	g
+give	g
+gjorde	g
+glad	g
+glas	g
+glide	g
+god	g
+goddag	g
+godnat	g
+gris	g
+grrrr	g
+græde	g
+græs	g
+græsslåmaskine	g
+grød	g
+grøn	g
+gul	g
+gulerødder	g
+gynge (action)	g
+gynge (object)	g
+gyngestol	g
+gå	g
+gås	g
+gåvogn	g
+gør	g
+gøre	g
+gøre færdig	g
+gøre rent	g
+ha(ve)	h
+hage	h
+hagesmæk	h
+halskæde	h
+halstørklæde	h
+ham	h
+hammer	h
+han	h
+hane	h
+hans	h
+har	h
+havde	h
+have	h
+haveslange	h
+havregryn	h
+hej	h
+hej hej (farvel)	h
+helikopter	h
+hen	h
+hende	h
+hendes	h
+henne	h
+hente	h
+her	h
+hest	h
+himmel	h
+historie	h
+hjem	j
+hjemme	j
+hjemmesko/sutsko	j
+hjort	j
+hjælpe	j
+holde	h
+holde øje med	h
+hoppe	h
+hos	h
+hoved	h
+hue	h
+hun	h
+hund	h
+hurtig	h
+hus	h
+hvad	v
+hvalp	v
+hvem	v
+hver	v
+hvert	v
+hvid	v
+hvilken/hvilket	v
+hvis	v
+hvor	v
+hvordan	v
+hvorfor	v
+hvornår	v
+hånd	h
+håndklæde	h
+hår	h
+hård	h
+hælde	h
+høj	h
+høj stol	h
+høne	h
+høre	h
+i	i
+i aften	i
+i dag	i
+i går	i
+i morgen	i
+i stedet for	i
+i stykker	i
+ikke	?e
+ind	?e
+inde	?e
+inden i	?e
+ingen	?e
+intet	?e
+is	i
+ja	j
+jakke	j
+jeg	j
+jer	j
+jeres	j
+jordbær	j
+juice	dZ
+kaffe	k
+kage(r)	k
+kalkun	k
+kam	k
+kamera	k
+kan	k
+kanin	k
+kartofler	k
+kasse	k
+kaste	k
+kat	k
+ked af det	k
+kigge	k
+kiks	k
+kilde	k
+killing	k
+kind	k
+kinderæg	k
+kirke	k
+kjole	k
+klappe	k
+klappe kage	k
+klapvogn	k
+klatre	k
+klistret	k
+klods	k
+klokke	k
+klovn	k
+knap	k
+kniv	k
+knæ	k
+ko	k
+kold	k
+komfur	k
+kondisko	k
+kop	k
+kost	k
+kramme	k
+kravlegård	k
+kridt	k
+krokodille	k
+krukke	k
+krus	k
+kuglepen	k
+kunne (datid)	k
+kykliky	k
+kylling (animal)	k
+kylling (food)	k
+kysse	k
+kælder	k
+kæledyrets navn	k
+kælk	k
+købe	k
+købe ind	k
+kød	k
+køkken	k
+køkkenhave	k
+køkkenrulle	k
+køleskab	k
+køn	k
+køre	k
+lade som om	l
+lam	l
+lampe	l
+lang	l
+langsom	l
+larme	l
+lastbil	l
+lave mad	l
+lege	l
+legeplads	l
+legetøj	l
+lego	l
+leverpostej	l
+lide	l
+lidt	l
+lille	l
+lukke	l
+lynlås	l
+lys	l
+lytte	l
+læber	l
+læge/doktor	l
+lærer	l
+læse	l
+løbe	l
+løbe efter	l
+løve	l
+mad	m
+made	m
+male	m
+mand	m
+mange	m
+mave	m
+med	m
+medicin	m
+meget	m
+melon	m
+men	m
+menneske	m
+mere	m
+mig	m
+mig selv	m
+min/mit/mine	m
+mjav	m
+mm mm (lækkert)	E
+mod	m
+modellérvoks	m
+mor	m
+morbror	m
+morfar	m
+morgen	m
+morgenmad	m
+mormor	m
+moster	m
+motorcykel	m
+muh	m
+mund	m
+mus	m
+myg	m
+myre	m
+må	m
+måne	m
+måtte (datid)	m
+mæh	m
+mælk	m
+mælkesnitte	m
+mørk	m
+nat	n
+nattøj	n
+navle	n
+ned	n
+nede	n
+nej	n
+nogen/nogle	n
+noget	n
+nu	n
+numse	n
+ny	n
+næse	n
+nødder	n
+nøgler	n
+og	V
+også	?V
+olde(mor)	?V
+oldefar	?V
+om	V
+omme	?V
+onkel	o
+op	?V
+oppe	?V
+orange	o
+ordne	O
+os	V
+ost	o
+ostehaps	o
+over	O
+ovn	?O
+ovre	?O
+pandekager	p
+papir	p
+park	p
+passe	p
+pasta	p
+peanutbutter	p
+penge	p
+person	p
+pige	p
+pind	p
+pingvin	p
+pizza	p
+plante	p
+plaske	p
+politi	p
+pomfritter	p
+pony	p
+popcorn	p
+postbud	p
+potte	p
+pude	p
+pung	p
+puslespil	p
+puste	p
+putte	p
+på	p
+pæn	p
+pølser	p
+radio	R
+rap	R
+rar	R
+regn	R
+ren	R
+ride	R
+ringe	R
+rive i stykker	R
+rosiner	R
+rugbrød	R
+rutche	R
+rutschebane	R
+rydde op	R
+ryste	R
+rød	R
+røre	R
+saft(evand)	s
+saks	s
+salt	s
+samme	s
+sandkasse	s
+sandwich	s
+se	s
+senere	s
+seng	s
+serviet	s
+shh	S
+shorts	S
+sidde	s
+sidde fast	s
+sidde på potte	s
+sidst	s
+sig	s
+sig selv	s
+sige	s
+sin/sit/sine	s
+skab	s
+skal	s
+skal jeg komme efter dig	s
+ske	s
+skib	s
+skildpadde	s
+sko	s
+skole	s
+skoven	s
+skovl	s
+skrald	s
+skrive	s
+skubbe	s
+skuffe	s
+skulder	s
+skulle (datid)	s
+sky	s
+skynde sig	s
+skål	s
+skære	s
+slem	s
+slik	s
+slikke	s
+slikkepind	s
+slutte	s
+slå	s
+slæde	s
+smage	s
+smide	s
+smile	s
+småkager	s
+småpenge	s
+smør	s
+snakke	s
+snavset	s
+sne	s
+snemand	s
+snurre rundt	s
+sodavand	s
+sofa	s
+sokker	s
+sol	s
+sommerfugl	s
+sort	s
+sove	s
+sove til middag	s
+soveværelse	s
+sovs	s
+spaghetti	s
+spand	s
+sparke	s
+spegepølse	s
+spil	s
+spilde	s
+spille	s
+spise	s
+stakkels	s
+standse	s
+sten	s
+stige	s
+stikke	s
+stille	s
+stjerne	s
+stol	s
+stor	s
+stranden	s
+strømpebukser	s
+strømper	s
+stue	s
+stå	s
+støvler	s
+støvsuger	s
+sulten	s
+suppe	s
+sur	s
+sut	s
+svømme	s
+svømmehal	s
+sweater	s
+syg	s
+syltetøj	s
+synge	s
+så	s
+så stor!	s
+sådan	s
+sår	s
+sæbe	s
+sæbebobler	s
+sætte	s
+sød	s
+søster	s
+søvnig	s
+t-shirt	t
+tabe	t
+tag	t
+tage	t
+tak	t
+tallerken	t
+tandbørste	t
+tante	t
+te	t
+tegne	t
+telefon	t
+terrasse	t
+tid	t
+tiger	t
+til	t
+tilbage	t
+tissekone	t
+tissemand	t
+tog	t
+toilet-/wc-papir	t
+toilet/wc	t
+tom	t
+traktor	t
+trapper	t
+trusser	t
+træ	t
+trække	t
+træt	t
+trøje	t
+tun	t
+tung	t
+tunge	t
+tv/fjernsyn	t
+tyggegummi	t
+tå	t
+tænder	t
+tænke	t
+tæppe	t
+tør	t
+tørre	t
+tørre af	t
+tørretumbler	t
+tørstig	t
+ud	u
+ude	u
+uden for	?u
+udenfor	?u
+ugle	u
+ulv	?u
+ulækker	u
+under	?O
+underbukser	?O
+ur	?u
+vand (beverage)	v
+vand (not beverage)	v
+vanter	v
+var	v
+varm	v
+vask	v
+vaske	v
+vaskemaskine	v
+ved	v
+ved siden af	v
+ven	v
+veninde	v
+venlig	v
+vent	v
+vente	v
+vi	v
+vil	v
+ville (datid)	v
+vind	v
+vindruer	v
+vindue	v
+vingummi	v
+vise	v
+vitaminer	v
+vores	v
+vov	v
+vred	v
+vugge	v
+våd	v
+vågen	v
+vågne	v
+væk (description)	v
+væk (location)	v
+vælter	v
+være	v
+værelse	v
+yoghurt	y
+zebra	s
+zoologisk have	s
+åbne	O
+åh åhh (ups)	O
+årnnn (bil-lyd)	O
+æble	E
+æg	E
+ærter	?E
+æsel	?E
+æske	?E
+ødelægge	W
+øje	V
+ønske	?W
+øre	W
