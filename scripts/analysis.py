@@ -40,7 +40,7 @@ class JaccardData:
         e(resultsfile)
         writeresults = 'Language\tNWords\tLevel\tJaccard\tNKids\n'
         for f in self.files:
-            cdi = CDIVocab(f,self.intervals,self.condition)
+            cdi = CDIVocab(f,self.condition)
             cdi.readCdi(analysis='j')
             bins = [(intv,self.getVocInter(intv,cdi.jvocabdata)) for intv in self.intervals]
             js = [(intv,jac(kbin),len(kbin)) for intv,kbin in bins if len(kbin) > 0]
@@ -56,7 +56,7 @@ class JaccardData:
         e(resultsfile)
         writeresults = 'Language\tAge\tJaccard\tNKids\n'
         for f in self.files:
-            cdi = CDIVocab(f,self.intervals,self.condition)
+            cdi = CDIVocab(f,self.condition)
             cdi.readCdi(analysis='j')
             ages = sorted(list(set([a for k, (a,v,i) in cdi.jvocabdata.items()])))
             bins = [getMonth(age,cdi.jvocabdata) for age in ages]
@@ -77,7 +77,7 @@ class JaccardData:
         writeresults = 'Language\tNWords\tLevel\tItem\tResponse\tNKids\tQuestion\n'
         for f in morphFiles:
             itemList = fileItems[f.split('/')[-1][:-4]]
-            cdi = CDIVocab(f,self.intervals,self.condition)
+            cdi = CDIVocab(f,self.condition)
             cdi.readCdi(itemList,'m')
             bins = [(intv,self.getVocInter(intv,cdi.morphdata)) for intv in self.intervals]            
             ms = [(intv,self.morphInfo(kbin)) for intv,kbin in bins if len(kbin) > 0]
@@ -106,8 +106,7 @@ def e(resultsfile):
             sys.exit()
 
 class CDIVocab:
-    def __init__(self, filepath, intervals=None, condition=lambda x: True):
-        self.intervals = intervals
+    def __init__(self, filepath, condition=lambda x: True):
         self.condition = condition
         self.language = filepath.split('/')[-1][:-4]
         print(self.language+'...')
@@ -162,13 +161,25 @@ class CDIVocab:
         def __makeFWdict():
             dat = {}
             for l in cdidata[1:]:
-                if (l[valueIdx] == 'produces') & (l[typeIdx]== 'word'):
+                if (l[valueIdx] == 'produces') & (l[typeIdx] == 'word'):
                     kid = l[idIdx]
                     if kid in dat:
                         dat[kid][1].append(l[itemIdx])
                         dat[kid][2].append((l[defIdx],l[catIdx]))
                     else:
                         dat[kid] = (int(l[ageIdx]), [l[itemIdx]], [(l[defIdx],l[catIdx])])
+            return {k:(a,len(i),w) for k, (a,i,w) in dat.items()}
+
+        def __makeWLdict():
+            dat = {}
+            for l in cdidata[1:]:
+                if ((l[valueIdx] == 'produces') & (l[typeIdx]== 'word')) & self.condition(l[catIdx]):
+                    kid = l[idIdx]
+                    if kid in dat:
+                        dat[kid][1].append(l[itemIdx])
+                        dat[kid][2].append(l[defIdx])
+                    else:
+                        dat[kid] = (int(l[ageIdx]), [l[itemIdx]], [l[defIdx]])
             return {k:(a,len(i),w) for k, (a,i,w) in dat.items()}
 
         if analysis == 'j':
@@ -181,6 +192,10 @@ class CDIVocab:
         if analysis == 'fw':
             fwd = __makeFWdict()
             self.firstwdata = fwd
+        if analysis == 'wl':
+            wld = __makeWLdict()
+            self.whenlearndata = wld
+
 
 class FirstWords:
     def __init__(self,corpusdir,prefix='',vsizes=[2,5,10,15,20],languages = None):
@@ -215,7 +230,33 @@ class FirstWords:
                 writeresults += ', '.join([ w[0]+' ('+w[1]+')' for w in sorted(singles, \
                     key=lambda wd: ''.join([wd[1],wd[0]]))]) + '\n\n'
             s(resultsfile,writeresults)
-        
+
+class WhenLearn:
+    def __init__(self,corpusdir,searchterms,resultsfile='./syntactic_bootstrapping.tsv',intervals=None):
+        if not intervals:
+            intervals = [(1,10), (11,25), (26,50), (51,100), (101,175), (176,250), \
+                (251,350), (351,450), (451,550), (551,650), (651,999)]
+        self.intervals = intervals
+        self.files = sorted(['{}/{}.csv'.format(corpusdir,k) for k in searchterms.keys()])
+        self.searchterms = searchterms
+        self.resultsfile = resultsfile
+
+    def runSynBoot(self):
+        e(self.resultsfile)
+        writeresults = 'Language\tLevel\tNWords\tNKidsTotal\tNKidsInV\tNKidsOOV\tWord\n'
+        for f in self.files:
+            cdi = CDIVocab(f,condition=lambda x: x != 'sounds')
+            cdi.readCdi(analysis='wl')
+            language = f.split('/')[-1][:-4]
+            terms = searchterms[language]
+            for i,interval in enumerate(self.intervals):
+                idct = {k:(a,v,w) for k, (a,v,w) in cdi.whenlearndata.items() if (interval[0] <= v <= interval[1])}
+                ln = '{}\t{}\t{}-{}\t{}\t'.format(language,i+1,interval[0],interval[1],len(idct))
+                for term in terms:
+                    inv = {k:(a,v,w) for k, (a,v,w) in idct.items() if (term in w)}
+                    writeresults += ln + '{}\t{}\t{}\n'.format(len(inv), len(idct)-len(inv),term)
+        s(self.resultsfile,writeresults)
+
 if __name__ == "__main__":
     corpusdir = '/path/to/corpora/cdidata/words_sentences'
     
@@ -231,3 +272,9 @@ if __name__ == "__main__":
 
     fw = FirstWords(corpusdir,prefix='../data/') #compare first words
     fw.runFW()
+
+    searchterms = {'amenglish_ws' : ['throw', 'drink (action)', 'wish', 'kick'], \
+                    'danish_ws' : ['kaste', 'drikke', 'ønske', 'sparke'], \
+                'norwegian_ws' : ['kaste','drikke (action)', 'ønske','sparke']}
+    wl = WhenLearn(corpusdir, searchterms, resultsfile='../data/when_learned_words.csv')
+    wl.runSynBoot()
