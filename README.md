@@ -37,3 +37,11 @@ fw = FirstWords('path/to/data')
 fw.runFW()
 ```
 
+To check predictions of syntactic bootstrapping by comparing acquisition trends for selected words:
+
+* define a list of words to search for in each language
+
+```python
+wl = WhenLearn('path/to/data',searchterms)
+wl.runSynBoot()
+```
