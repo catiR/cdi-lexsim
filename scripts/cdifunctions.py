@@ -3,32 +3,18 @@ import numpy as np
 from itertools import combinations
 from collections import defaultdict
 
-class JaccardData:
-    def __init__(self, corpusdir,vocabsubset):
-        all_intervals = [(1,10), (11,25), (26,50), (51,100), (101,175), (176,250), \
-                (251,350), (351,450), (451,550), (551,650), (651,999)]
-        verb_intervals = [(1,5), (6,10), (11,20), (21,35), (36,55), \
-                (56,85), (86,125), (126,175), (176,200)]
-        noun_intervals = [(1,7), (8,17), (19,30), (31,45), (46,65), (66,90), \
-                (91,120), (121,160), (161,200), (201,250), (251,999)]
-        def all_filter(category):
-            return category != 'sounds'
-        def verb_filter(category):
-            return category == 'action_words'
-        def noun_filter(category):
-            nouns = ['animals','vehicles','toys','food_drink','clothing','body_parts',\
-                    'household','furniture_rooms','outside', 'places']
-            return category in nouns
-        self.files = sorted(glob.glob(corpusdir + '/*.csv'))
-        try:
-            self.intervals = {'all':all_intervals,'verbs':verb_intervals,'nouns':noun_intervals}[vocabsubset]
-        except:
-            print('Undefined vocabulary subset! Choose: all, nouns, verbs.')
-            sys.exit()
-        self.condition = {'all':all_filter,'verbs':verb_filter,'nouns':noun_filter}[vocabsubset]
+### Author: Caitlin Richter
+### 28 Feb. 2021
+### University of Pennsylvania
 
-    def getVocInter(self,interval,data):
-        return { k: v for k,v in data.items() if (interval[0] <= v[1] <= interval[1]) }
+class JaccardData:
+    def __init__(self, corpusdir,condition = lambda x: x != 'sounds', intervals=None):
+        if not intervals:
+            intervals = [(1,10), (11,25), (26,50), (51,100), (101,175), (176,250), \
+                (251,350), (351,450), (451,550), (551,650), (651,999)]
+        self.files = sorted(glob.glob(corpusdir + '/*.csv'))
+        self.intervals = intervals
+        self.condition = condition
     def morphInfo(self,mdata):
         mdict = defaultdict(list)
         for k, (a,v,i,m) in mdata.items():
@@ -42,7 +28,7 @@ class JaccardData:
         for f in self.files:
             cdi = CDIVocab(f,self.condition)
             cdi.readCdi(analysis='j')
-            bins = [(intv,self.getVocInter(intv,cdi.jvocabdata)) for intv in self.intervals]
+            bins = [(intv,getVocInter(intv,cdi.jvocabdata)) for intv in self.intervals]
             js = [(intv,jac(kbin),len(kbin)) for intv,kbin in bins if len(kbin) > 0]
             for l,result in enumerate(js):
                 def p(intv): return str(intv[0]) + '-' + str(intv[1])
@@ -66,27 +52,22 @@ class JaccardData:
                 writeresults += '\t'.join(map(str,ln))+'\n'
         s(resultsfile,writeresults)
 
-    def runMorph(self,resultsfile='./morphology.csv'):
-        fileItems = {'amenglish_ws':['item_686','item_687','item_688','item_689'], \
-                 'danish_ws':['item_731','item_732','item_733'], \
-                 'norwegian_ws':['item_737','item_738','item_739','item_740','item_741','item_742']}
+    def runMorph(self,fileItems,resultsfile='./morphology.tsv'):
         e(resultsfile)
-        # morphosyntax items are not similar across languages and need to be handled individually
-        morphFiles = [f for f in self.files if f.split('/')[-1] in\
-                ['amenglish_ws.csv','norwegian_ws.csv','danish_ws.csv']]
+        morphFiles = [f for f in self.files if f.split('/')[-1][:-4] in fileItems.keys()]
         writeresults = 'Language\tNWords\tLevel\tItem\tResponse\tNKids\tQuestion\n'
         for f in morphFiles:
             itemList = fileItems[f.split('/')[-1][:-4]]
             cdi = CDIVocab(f,self.condition)
-            cdi.readCdi(itemList,'m')
-            bins = [(intv,self.getVocInter(intv,cdi.morphdata)) for intv in self.intervals]            
+            cdi.readCdi(itemList=itemList,analysis='m')
+            bins = [(intv,getVocInter(intv,cdi.morphdata)) for intv in self.intervals]            
             ms = [(intv,self.morphInfo(kbin)) for intv,kbin in bins if len(kbin) > 0]
             for l,result in enumerate(ms):
                 def p(intv): return str(intv[0]) + '-' + str(intv[1])
                 ln = [cdi.language, p(result[0])]
                 for itm in result[1].keys():
                     ln2 = ln + [l+1,itm.split('___')[0]]
-                    for response in ['never','sometimes','often']:
+                    for response in ['not yet','sometimes','often']:
                         ln3=ln2+[response,result[1][itm].count(response),itm.split('___')[1]]
                         writeresults += '\t'.join(map(str,ln3))+'\n'
         s(resultsfile,writeresults)
@@ -104,6 +85,9 @@ def e(resultsfile):
     if(os.path.exists(resultsfile)):
         while(input('Output file already exists and will be overwritten. Continue? y/n: ') != 'y'):
             sys.exit()
+def getVocInter(interval,data):
+    return { k: v for k,v in data.items() if (interval[0] <= v[1] <= interval[1]) }
+
 
 class CDIVocab:
     def __init__(self, filepath, condition=lambda x: True):
@@ -114,7 +98,7 @@ class CDIVocab:
         self.vocabdata = None
         self.morphdata = None
 
-    def readCdi(self,itemList=None,analysis='v'):
+    def readCdi(self,itemList=None,lookup=None,analysis='j'):
         with open(self.filepath) as handle:
             cdidata = handle.read()
         # normalise language data
@@ -154,7 +138,7 @@ class CDIVocab:
                         dat[kid][2][mitm] = l[valueIdx]
                     else:
                         dat[kid] = (int(l[ageIdx]), {}, {mitm:l[valueIdx]})
-            vd = {k:(a,len(i),list(i.keys())) for k, (a,i,m) in dat.items() } # {child: (age, vocabsize, [items])}
+            vd = {k:(a,len(i),list(i.keys())) for k, (a,i,m) in dat.items() } 
             md = {k:(a,len(i),i,m) for k, (a,i,m) in dat.items() if len(i)>0}
             return vd,md
 
@@ -182,6 +166,27 @@ class CDIVocab:
                         dat[kid] = (int(l[ageIdx]), [l[itemIdx]], [l[defIdx]])
             return {k:(a,len(i),w) for k, (a,i,w) in dat.items()}
 
+        def __makePSdict():            
+            with open(lookup) as handle:
+                lex = handle.read().splitlines()
+            lex = {lxn.split('\t')[0]:lxn.split('\t')[1] for lxn in lex[2:]}
+            def __g(w):
+                nset=set(['name','nombre','navn'])
+                return 'XCL' if (nset & set(w.split(' '))) else lex[w]
+            def counted(soundlist):
+                tot = len(soundlist)
+                sounds = sorted(list(set(soundlist)), key=lambda l: soundlist.count(l),reverse=True)
+                return ([(sound,soundlist.count(sound)/tot) for sound in sounds],tot)
+            dat = {}
+            for l in cdidata[1:]:
+                if (l[valueIdx] == 'produces') & (l[typeIdx] == 'word'):
+                    kid = l[idIdx]
+                    if kid in dat:
+                        dat[kid].append(__g(l[defIdx]))
+                    else:
+                        dat[kid] = [__g(l[defIdx])]
+            return {k:counted(s) for k,s in dat.items()}
+
         if analysis == 'j':
             vd = __makeJdict()
             self.jvocabdata = vd
@@ -195,13 +200,13 @@ class CDIVocab:
         if analysis == 'wl':
             wld = __makeWLdict()
             self.whenlearndata = wld
-
-
+        if analysis == 'ps':
+            psd = __makePSdict()
+            self.selectdata = psd
+            
 class FirstWords:
-    def __init__(self,corpusdir,prefix='',vsizes=[2,5,10,15,20],languages = None):
+    def __init__(self,corpusdir,languages,prefix='',vsizes=[2,5,10,15,20]):
         files = glob.glob(corpusdir + '/*.csv')
-        if not languages:
-            languages = ['amenglish_ws','auenglish_ws','danish_ws','mxspanish_ws','norwegian_ws']
         self.files = sorted([fpath for fpath in files if fpath.split('/')[-1][:-4] in languages])
         self.vsizes = vsizes
         self.prefix=prefix
@@ -248,33 +253,41 @@ class WhenLearn:
             cdi = CDIVocab(f,condition=lambda x: x != 'sounds')
             cdi.readCdi(analysis='wl')
             language = f.split('/')[-1][:-4]
-            terms = searchterms[language]
+            terms = self.searchterms[language]
             for i,interval in enumerate(self.intervals):
-                idct = {k:(a,v,w) for k, (a,v,w) in cdi.whenlearndata.items() if (interval[0] <= v <= interval[1])}
+                idct = getVocInter(interval,cdi.whenlearndata)
                 ln = '{}\t{}\t{}-{}\t{}\t'.format(language,i+1,interval[0],interval[1],len(idct))
                 for term in terms:
                     inv = {k:(a,v,w) for k, (a,v,w) in idct.items() if (term in w)}
                     writeresults += ln + '{}\t{}\t{}\n'.format(len(inv), len(idct)-len(inv),term)
         s(self.resultsfile,writeresults)
 
-if __name__ == "__main__":
-    corpusdir = '/path/to/corpora/cdidata/words_sentences'
-    
-    jc = JaccardData(corpusdir, 'all')
-    jc.runAge(resultsfile='../data/jaccard_all_byAge.csv') #compute jaccard similarities
-    jc.runVocab(resultsfile='../data/jaccard_all_byVocab.csv')
-    vjc = JaccardData(corpusdir, 'verbs')
-    vjc.runVocab(resultsfile='../data/jaccard_verbs_byVocab.csv')
-    njc = JaccardData(corpusdir, 'nouns')
-    njc.runVocab(resultsfile='../data/jaccard_nouns_byVocab.csv')
+class LexSelect:
+    def __init__(self,corpusdir,languages,resources=None,resultsfile='./lexical_selection.tsv',intervals=None):
+        if not intervals:
+            intervals =[(15,25),(40,60),(90,110),(125,175)]
+        self.intervals = intervals
+        self.files = sorted(['{}/{}.csv'.format(corpusdir,lang) for lang in languages])
+        if not resources:
+            resources = {lang:'../resources/{}_lookup.txt'.format(lang) for lang in languages}
+        self.resources = resources
+        self.resultsfile = resultsfile
 
-    jc.runMorph(resultsfile='../data/cdi_morphology.csv') #track morphology development
+    def runLexSelec(self):
+        e(self.resultsfile)
+        writeresults = 'Language\tVocabSize\tNKids\tNKidsFreqOnset\tOnsetDetails\n'
+        for f in self.files:
+            language = f.split('/')[-1][:-4]
+            lexpath = self.resources[language]
+            cdi = CDIVocab(f)
+            cdi.readCdi(lookup=lexpath,analysis='ps')
+            for interval in self.intervals:
+                idct = getVocInter(interval,cdi.selectdata)
+                sdict = {k:slist for k,(slist,v) in idct.items() if slist[0][1]>= 0.2}
+                sounds = [[s[0] for s in slist if s[1]>=0.2] for k,slist in sdict.items()]
+                sounds = [a for b in sounds for a in b]
+                topsounds = sorted(list(set(sounds)), key=lambda l: sounds.count(l),reverse=True)
+                writeresults += '{}\t{}-{}\t{}\t{}\t'.format(language,interval[0],interval[1],len(idct),len(sdict))
+                writeresults += ', '.join(['{} ({})'.format(snd,sounds.count(snd)) for snd in topsounds])+'\n'
+        s(self.resultsfile,writeresults)
 
-    fw = FirstWords(corpusdir,prefix='../data/') #compare first words
-    fw.runFW()
-
-    searchterms = {'amenglish_ws' : ['throw', 'drink (action)', 'wish', 'kick'], \
-                    'danish_ws' : ['kaste', 'drikke', 'ønske', 'sparke'], \
-                'norwegian_ws' : ['kaste','drikke (action)', 'ønske','sparke']}
-    wl = WhenLearn(corpusdir, searchterms, resultsfile='../data/when_learned_words.csv')
-    wl.runSynBoot()
