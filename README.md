@@ -39,7 +39,7 @@ firstWords('/path/to/data')
 * Danish source: [Sprakbanken](https://openslr.org/8/)
 * Mexican Spanish source: [Santiago Spanish Lexicon](https://www.openslr.org/34/)
 * Norwegian source: [g2p-no](https://github.com/peresolb/g2p-no) NoFAbet edition of [NST lexicon](https://www.nb.no/sprakbanken/en/resource-catalogue/oai-nb-no-sbr-23/)
-* Missing entries added by hand for all languages
+* Missing entries added for all languages
 
 ```python
 lexicalSelection('/path/to/data')
