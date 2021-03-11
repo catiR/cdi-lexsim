@@ -10,7 +10,7 @@ def wholeVocabJaccard(corpusdir):
     jc.runVocab(resultsfile = '../data/jaccard_all_byVocab.csv')
 
 def partVocabJaccard(corpusdir):
-    verbIntervals = verb_intervals = [(1,5), (6,10), (11,20), (21,35), (36,55), (56,85), (86,125), (126,175), (176,200)]
+    verbIntervals = [(1,5), (6,10), (11,20), (21,35), (36,55), (56,85), (86,125), (126,175), (176,200)]
     verbFilter = lambda wordCategory: wordCategory == 'action_words'
     vjc = JaccardData(corpusdir, verbFilter,verbIntervals)
     vjc.runVocab(resultsfile = '../data/jaccard_verbs_byVocab.csv')
